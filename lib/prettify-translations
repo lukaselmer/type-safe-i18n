@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'active_support/inflector/methods'
+require 'json'
+
+def sort_by_keys(val_or_hash)
+  return val_or_hash unless val_or_hash.is_a? Hash
+
+  sorted_hash = {}
+  val_or_hash.keys.sort.each { |k| sorted_hash[k] = sort_by_keys(val_or_hash[k]) }
+  sorted_hash
+end
+
+def prettify_keys(val_or_hash)
+  return val_or_hash unless val_or_hash.is_a? Hash
+
+  unsorted_contents_with_pretty_keys  = {}
+  val_or_hash.keys.each { |k| unsorted_contents_with_pretty_keys[pretty_key(k)] = prettify_keys(val_or_hash[k]) }
+  unsorted_contents_with_pretty_keys
+end
+
+def pretty_key(key)
+  escaped_key = key.gsub('/', '_')
+  ActiveSupport::Inflector.camelize(ActiveSupport::Inflector.underscore(escaped_key), false)
+end
+
+Dir.glob('src/public/i18n/**/*.json').each do |filename|
+  unsorted_contents = JSON.parse(File.read(filename))
+  unsorted_contents_with_pretty_keys = prettify_keys(unsorted_contents)
+  pretty = JSON.pretty_generate(sort_by_keys(unsorted_contents_with_pretty_keys))
+  File.write(filename, "#{pretty}\n")
+end

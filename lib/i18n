@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+source ~/.zshrc
+
+bin/prettyfy-translations
+bin/generate-i18n

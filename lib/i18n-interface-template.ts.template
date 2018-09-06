@@ -1,0 +1,5 @@
+export interface Translations {
+  // this part is generated from de.json, en.json, ....
+  // {{TranslationsInterface}}
+  // until here
+}

@@ -1,0 +1,24 @@
+{
+  "name": "type-safe-i18n",
+  "version": "1.0.0",
+  "description": "Type Safe i18n for TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaselmer/type-safe-i18n.git"
+  },
+  "keywords": [
+    "i18n",
+    "translations",
+    "TypeScript"
+  ],
+  "author": "Lukas Elmer <lukas.elmer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukaselmer/type-safe-i18n/issues"
+  },
+  "homepage": "https://github.com/lukaselmer/type-safe-i18n#readme"
+}

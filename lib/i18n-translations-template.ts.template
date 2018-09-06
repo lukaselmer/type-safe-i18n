@@ -1,0 +1,13 @@
+// tslint:disable:max-line-length
+// tslint:disable:ter-max-len
+import { Translations } from './i18n-interface';
+
+interface AllTranslations {
+  [language: string]: Translations;
+}
+
+export const allTranslations: AllTranslations = {
+  // this part is generated from de.json, en.json, ....
+  // {{AllTranslations}}
+  // until here
+};

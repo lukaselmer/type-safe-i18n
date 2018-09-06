@@ -1,0 +1,17 @@
+{
+  "hello": {
+    "world": "Welt"
+  },
+  "example": {
+    "one": "Du hast ein Beispiel",
+    "other": "Du hast {{count}} Beispiele"
+  },
+  "another": {
+    "very": {
+      "nested": {
+        "example": "Ein sehr verschachteltes Beispiel"
+      }
+    }
+  },
+  "exampleWithVariables": "Das {subject} ist {color}"
+}

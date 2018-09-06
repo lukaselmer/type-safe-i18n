@@ -4,7 +4,7 @@
   },
   "example": {
     "one": "Du hast ein Beispiel",
-    "other": "Du hast {{count}} Beispiele"
+    "other": "Du hast {count} Beispiele"
   },
   "another": {
     "very": {

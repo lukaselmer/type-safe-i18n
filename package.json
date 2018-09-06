@@ -15,7 +15,7 @@
     "translations",
     "TypeScript"
   ],
-  "author": "Lukas Elmer <lukas.elmer@gmail.com>",
+  "author": "Lukas Elmer <lukas.elmer@gmail.com>, Simon Huber <simon.huber@renuo.ch>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lukaselmer/type-safe-i18n/issues"

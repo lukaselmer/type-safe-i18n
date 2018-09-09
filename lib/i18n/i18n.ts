@@ -1,7 +1,8 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Translations } from './generated/i18n-interface';
 import { allTranslations } from './generated/i18n-translations';
+import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 export class I18n {
   static t: Translations = allTranslations['de'];
@@ -9,7 +10,7 @@ export class I18n {
   private static langSubject = new BehaviorSubject<string>('de');
 
   static setLang(lang: string) {
-    I18n.getLang().first().subscribe(currentLang => {
+    I18n.getLang().pipe(first()).subscribe(currentLang => {
       if (lang === currentLang) { return; }
       I18n.t = allTranslations[lang];
       I18n.langSubject.next(lang);

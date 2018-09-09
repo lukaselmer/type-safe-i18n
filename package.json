@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/lukaselmer/type-safe-i18n/issues"
   },
-  "homepage": "https://github.com/lukaselmer/type-safe-i18n#readme"
+  "homepage": "https://github.com/lukaselmer/type-safe-i18n#readme",
+  "dependencies": {
+    "rxjs": "^6.3.2"
+  }
 }

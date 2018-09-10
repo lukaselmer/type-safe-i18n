@@ -23,5 +23,14 @@
   "homepage": "https://github.com/lukaselmer/type-safe-i18n#readme",
   "dependencies": {
     "rxjs": "^6.3.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.45",
+    "jasmine-core": "^2.5.2",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma-jasmine": "^1.0.2",
+    "karma": "^1.5.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2"
   }
 }

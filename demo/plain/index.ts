@@ -8,3 +8,4 @@ import { I18n } from '../lib/i18n/i18n'
 
 const i18n = new I18n<Translations>('de', allTranslations);
 console.log(i18n.t.another);
+

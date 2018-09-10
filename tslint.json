@@ -1,0 +1,328 @@
+{
+  "extends": "tslint:latest",
+  "rulesDirectory": [
+    "node_modules/codelyzer",
+    "node_modules/tslint-microsoft-contrib",
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
+  "rules": {
+    // tslint-eslint rules
+    "no-constant-condition": true,
+    "no-irregular-whitespace": true,
+    "ter-arrow-body-style": [
+      true,
+      "as-needed",
+      {
+        "requireReturnForObjectLiteral": true
+      }
+    ],
+    "ter-arrow-parens": [
+      true,
+      "as-needed"
+    ],
+    "ter-arrow-spacing": [
+      true
+    ],
+    "ter-prefer-arrow-callback": [
+      true,
+      {
+        "allowNamedFunctions": false,
+        "allowUnboundThis": false
+      }
+    ],
+    "ter-indent": [
+      true,
+      2,
+      {
+        "SwitchCase": 1,
+        "outerIIFEBody": 0,
+        "MemberExpression": 1,
+        "FunctionDeclaration": {
+          "body": 1,
+          "parameters": "first"
+        },
+        "FunctionExpression": {
+          "body": 1,
+          "parameters": "first"
+        },
+        "CallExpression": {
+          "arguments": 1
+        }
+      }
+    ],
+    "ter-max-len": [
+      true,
+      140,
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "no-multi-spaces": [
+      true,
+      {
+        "exceptions": {
+          "PropertyAssignment": false
+        }
+      }
+    ],
+    // TODO: enable "object-curly-spacing": true,
+    // tslint rules
+    "array-type": [
+      true,
+      "array"
+    ],
+    "callable-types": true,
+    // NOFIX? "no-void-expression": true,
+    "cyclomatic-complexity": [
+      true,
+      4
+    ],
+    // adjust if possible
+    "interface-name": [
+      false,
+      "always-prefix"
+    ],
+    "interface-over-type-literal": true,
+    "jsdoc-format": false,
+    "max-classes-per-file": [
+      true,
+      1
+    ],
+    "max-line-length": [
+      true,
+      140
+    ],
+    "member-access": [true, "no-public"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "protected-static-field",
+          "private-static-field",
+          "public-static-method",
+          "protected-static-method",
+          "private-static-method",
+          "public-instance-field",
+          "protected-instance-field",
+          "private-instance-field",
+          "constructor"
+        ]
+      }
+    ],
+    "new-parens": true,
+    // adjust if possible
+    "no-any": false,
+    "no-consecutive-blank-lines": true,
+    "no-empty-interface": true,
+    "no-namespace": true,
+    // adjust if possible
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-unused-expression": true,
+    "no-var-requires": true,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "object-literal-shorthand": true,
+    // adjust if possible
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
+    "prefer-const": true,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [
+      true,
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "never",
+        "method": "never",
+        "constructor": "never"
+      }
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    // FIX? "typedef": [true, "callSignature", "indexSignature", "parameter", "propertySignature",
+    // "variableDeclarator", "memberVariableDeclarator"],
+    "typeof-compare": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ],
+    // microsoft-contrib: security
+    "insecure-random": true,
+    "no-banned-terms": true,
+    "no-delete-expression": true,
+    "no-disable-auto-sanitization": true,
+    "no-document-domain": true,
+    "no-document-write": true,
+    "no-eval": true,
+    "no-exec-script": true,
+    "no-function-constructor-with-string-args": true,
+    // TODO: "no-http-string": [true, "http://www.example.com/?.*", "http://www.examples.com/?.*"],
+    "no-inner-html": true,
+    "no-octal-literal": true,
+    // TODO: "no-reserved-keywords": true,
+    "no-string-based-set-immediate": true,
+    "no-string-based-set-interval": true,
+    "no-string-based-set-timeout": true,
+    "non-literal-require": true,
+    "possible-timing-attack": false,
+    // microsoft-contrib: common bugs and correctness
+    "forin": true,
+    "jquery-deferred-must-complete": true,
+    "label-position": true,
+    // FIX? "mocha-avoid-only": true,
+    // FIX? "mocha-no-side-effect-code": true,
+    "no-arg": true,
+    // FIX? "no-constant-condition": true,
+    "no-control-regex": true,
+    "no-duplicate-case": true,
+    "no-duplicate-variable": true,
+    "no-empty": false,
+    // FIX? "no-for-in-array": true,
+    "no-invalid-regexp": true,
+    "no-invalid-this": true,
+    "no-jquery-raw-elements": true,
+    "no-regex-spaces": true,
+    "no-sparse-arrays": true,
+    // FIX? "no-stateless-class": true,
+    // FIX? "no-string-literal": true,
+    "no-unnecessary-bind": true,
+    "no-unnecessary-override": true,
+    "no-unsafe-finally": true,
+    // too performance intensive   "no-use-before-declare": true,
+    "no-with-statement": true,
+    "promise-must-complete": true,
+    "radix": true,
+    // FIX? "restrict-plus-operands": true,
+    // // the plus operand should really only be used for strings and numbers
+    "switch-default": true,
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "unified-signatures": true,
+    "use-isnan": true,
+    "use-named-parameter": true,
+    "valid-typeof": true,
+    // microsoft-contrib: code clarity
+    "adjacent-overload-signatures": true,
+    // NOFIX? "arrow-parens": false,
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "class-name": true,
+    "comment-format": true,
+    // NOFIX? "completed-docs": [true, "classes"],
+    // FIX? "export-name": true,
+    // FIX? "function-name": true,
+    "import-name": true,
+    "import-spacing": true,
+    "max-file-line-count": true,
+    "max-func-body-length": [
+      true,
+      100,
+      {
+        "ignore-parameters-to-function-regex": "describe"
+      }
+    ],
+    // FIX? "missing-jsdoc": true,
+    "mocha-unneeded-done": true,
+    "no-construct": true,
+    "no-default-export": true,
+    // FIX? "no-empty-interfaces": true,
+    "no-for-in": true,
+    "no-function-expression": true,
+    // NOFIX? "no-inferrable-types": false, // turn no-inferrable-types off in order to make the code consistent in its use of type decorations
+    // NOFIX? "no-multiline-string": true, // multiline-strings often introduce unnecessary whitespace into the string literals
+    // NOFIX? "no-null-keyword": false, // turn no-null-keyword off and use undefined to mean not initialized and null to mean without a value
+    // NOFIX? "no-parameter-properties": true,
+    // NOFIX? "no-relative-imports": true,
+    "no-require-imports": true,
+    "no-shadowed-variable": true,
+    // NOFIX? "no-suspicious-comment": true,
+    "no-typeof-undefined": true,
+    "no-unnecessary-field-initialization": true,
+    "no-unnecessary-local-variable": true,
+    "no-unsupported-browser-code": true,
+    "no-var-keyword": true,
+    "no-var-self": true,
+    "one-variable-per-declaration": true,
+    // NOFIX? "only-arrow-functions": true,  // there are many valid reasons to declare a function
+    "prefer-array-literal": true,
+    "prefer-for-of": true,
+    "underscore-consistent-invocation": true,
+    // microsoft-contrib: whitespace
+    // TODO: fix "align": [true, "parameters", "arguments", "statements"],
+    "curly": true,
+    "eofline": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "linebreak-style": true,
+    "no-empty-line-after-opening-brace": false,
+    "no-single-line-block-comment": true,
+    "no-unnecessary-semicolons": true,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    // microsoft-contrib: controversial and configurable
+    // NOFIX "ban": false,
+    // NOFIX "no-internal-module": false, // only enable this if you are not using internal modules
+    "no-mergeable-namespace": true,
+    "no-reference": true,
+    "no-unexternalized-strings": true,
+    "no-angle-bracket-type-assertion": false,
+    "prefer-type-cast": true,
+    "no-non-null-assertion": true,
+
+    "no-object-literal-type-assertion": false,
+    "prefer-template": [true, "allow-single-concat"],
+    "no-invalid-template-strings": true
+
+//    This ones require type checking
+//    "no-cookies": true,
+//    "strict-type-predicates": true,
+//    "no-unnecessary-qualifier": true,
+//    "no-unsafe-any": true,
+//    "no-boolean-literal-compare": true,
+//    "match-default-export-name": true
+  }
+}

@@ -6,6 +6,7 @@ require 'active_support/inflector/methods'
 
 TRANSLATIONS_PATH = ARGV[0]
 GENERATED_TRANSLATIONS_PATH = ARGV[1]
+DEFAULT_LANGUAGE = ARGV[2] || 'de'
 
 def run
   puts '> I18n'
@@ -18,7 +19,7 @@ def run
 end
 
 def extract_interface
-  contents = JSON.parse(File.read("#{TRANSLATIONS_PATH}/de.json"))
+  contents = JSON.parse(File.read("#{TRANSLATIONS_PATH}/#{DEFAULT_LANGUAGE}.json"))
   contents.map { |k, v| render_interface_part(k, v) }.join("\n")
 end
 

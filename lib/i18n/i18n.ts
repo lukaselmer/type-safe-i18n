@@ -1,35 +1,39 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { Translations } from './generated/i18n-interface';
-import { allTranslations } from './generated/i18n-translations';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { AllTranslations } from '../i18n-base.types';
 
-export class I18n {
-  static t: Translations = allTranslations['de'];
+export class I18n<T> {
+  t: T;
 
-  private static langSubject = new BehaviorSubject<string>('de');
+  private langSubject = new BehaviorSubject<string>('en');
 
-  static setLang(lang: string) {
-    I18n.getLang().first().subscribe(currentLang => {
+  constructor(defaultLanguage = 'en', private allTranslations: AllTranslations<T>) {
+    this.t = allTranslations[defaultLanguage];
+  }
+
+  setLang(lang: string) {
+    this.getLang().pipe(first()).subscribe(currentLang => {
       if (lang === currentLang) { return; }
-      I18n.t = allTranslations[lang];
-      I18n.langSubject.next(lang);
+      this.t = this.allTranslations[lang];
+      this.langSubject.next(lang);
     });
   }
 
-  static getLang(): Observable<string> {
-    return I18n.langSubject.asObservable();
+  getLang(): Observable<string> {
+    return this.langSubject.asObservable();
   }
 
-  static tFromString(translationKey: string): string {
+  tFromString(translationKey: string): string {
     return translationKey.split('.')
-      .reduce((current: any, part) => current[part], I18n.t);
+      .reduce((current: any, part) => current[part], this.t);
   }
 
-  static interpolate(translation: string, params: {[key: string]: string}): string {
+  interpolate(translation: string, params: {[key: string]: string}): string {
     return Object.keys(params).reduce((result, key) => result.split(`{${key}}`).join(params[key]), translation);
   }
 
-  static pluralize(translationParent: {one: string, other: string}, count: number): string {
-    return I18n.interpolate(translationParent[count === 1 ? 'one' : 'other'], {count: count.toString()});
+  pluralize(translationParent: {one: string, other: string}, count: number): string {
+    return this.interpolate(translationParent[count === 1 ? 'one' : 'other'], {count: count.toString()});
   }
 }

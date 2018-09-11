@@ -6,10 +6,10 @@ import { AllTranslations } from '../i18n-base.types';
 export class I18n<T> {
   t: T;
 
-  private langSubject = new BehaviorSubject<string>('de');
+  private langSubject = new BehaviorSubject<string>('en');
 
   constructor(defaultLanguage = 'en', private allTranslations: AllTranslations<T>) {
-    this.t = allTranslations[defaultLanguage]
+    this.t = allTranslations[defaultLanguage];
   }
 
   setLang(lang: string) {

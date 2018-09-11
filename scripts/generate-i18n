@@ -4,8 +4,8 @@ require 'json'
 require 'fileutils'
 require 'active_support/inflector/methods'
 
-GENERATED_TRANSLATIONS_PATH = ARGV[1]
 TRANSLATIONS_PATH = ARGV[0]
+GENERATED_TRANSLATIONS_PATH = ARGV[1]
 
 def run
   puts '> I18n'
@@ -18,7 +18,7 @@ def run
 end
 
 def extract_interface
-  contents = JSON.parse(File.read([TRANSLATIONS_PATH, 'de.json'].join('/')))
+  contents = JSON.parse(File.read("#{TRANSLATIONS_PATH}/de.json"))
   contents.map { |k, v| render_interface_part(k, v) }.join("\n")
 end
 

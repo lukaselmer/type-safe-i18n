@@ -1,5 +1,4 @@
 # Type Safe I18n for TypeScript
-git clone git@github.com:renuo/lawoon-frontend.git
 
 ## Translations
 
